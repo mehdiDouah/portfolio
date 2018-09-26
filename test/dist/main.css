@@ -1,0 +1,18 @@
+* {
+  border: 1px solid red;
+  font-size: 25px; }
+
+.illustration {
+  width: 645px;
+  height: 447px;
+  display: inline-block;
+  background-color: blue; }
+
+.key-word {
+  font-size: 19px !important; }
+
+.description {
+  margin-bottom: 23px !important;
+  font-style: italic; }
+
+/*# sourceMappingURL=main.css.map */
