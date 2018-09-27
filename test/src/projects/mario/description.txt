@@ -1,0 +1,1 @@
+Application réalisé en C++ avec la librairie Qt, Permet à partir d'un sprite-sheet de créer des sprites optimisé pour la programmation.
