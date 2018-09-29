@@ -1,13 +1,15 @@
+const $ = require('jquery')(require("jsdom").jsdom().parentWindow);
 const fs = require('fs')
 
-write_projects('projects')
 
-function write_projects(path) {
-    fs.readdir(path, function(err, items) {
+create_html_file_from_dir('projects')
+put_html_in_file('../dist/index.html')
+
+function create_html_file_from_dir(dir) {
+    fs.readdir(dir, function(err, items) {
         for (var i= 0; i < items.length; i++) {
-            var file = path + '/' + items[i]
-            console.log('file: ' + file)
-            write_html(file)
+            var file = dir + '/' + items[i]
+            create_html_file(file)
         }
     });
 }
@@ -22,7 +24,14 @@ function get_description_long(path) {
     return description
 }
 
-function write_html(path) {
+function put_html_in_file(file_path) {
+    let file = fs.readFileSync(file_path)
+    let project = fs.readFileSync('projects/mario/out.html')
+    
+    let file_dom = $('<div></div>')
+}
+
+function create_html_file(path) {
     project_js = fs.readFileSync(path + '/project.json')
     project = JSON.parse(project_js)
 

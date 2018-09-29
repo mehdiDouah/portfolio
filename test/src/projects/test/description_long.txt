@@ -1,5 +1,0 @@
-On peut travailler avec plusieurs type d'image (PNG, GIF, JPEG, BMP), découper des frames
-à la sourit, voir le résultat en temps réel, réglé la vitesse d'animation pour les preview.
-On peut choisir la façon d'aligner les frames et la couleur de fond. La sauvegarde se fait
-en .PNG. Le projet à été réalié pendant ma période de l'usine (en décembre), dans mon temps libre, mes 
-pauses, et pendant les vacances de noël.
