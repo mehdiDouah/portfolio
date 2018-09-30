@@ -8,15 +8,34 @@ function copy_img_in($path) {
     $imgs = array();
     $dir = opendir('projects');
 
+    // Collect images.
     while (false !== ($entry = readdir($dir))) {
         if ($entry !== '.' && $entry !== '..') {
-            $imgs = collect_img();
+            if (! is_dir($path . '/' . $entry))
+                mkdir($path . '/' . $entry);
+
+            copy_img('projects/' . $entry, $path . '/' . $entry);
         }
+    }
+
+    foreach ($imgs as $img) {
+        copy($img, $path);
     }
 }
 
-function collect_img() {
-    
+function copy_img($dir_path, $dest) {
+    $dir = opendir($dir_path);
+    $imgs = array();
+
+    while (false !== ($entry = readdir($dir))) {
+        if ($entry !== '.' && $entry !== '..') {
+            if (pathinfo($entry)['extension'] === 'jpg') {
+                copy($dir_path . '/' . $entry, $dest . '/' . $entry);
+            }
+        }
+    }
+
+    return $imgs;
 }
 
 function create_html_file_from_dir($dir_path) {
