@@ -3,6 +3,7 @@
 create_html_file_from_dir('projects');
 put_html_in_file('../dist/index.html');
 copy_img_in('../dist/img');
+make_slider();
 
 function copy_img_in($path) {
     $imgs = array();
@@ -29,7 +30,7 @@ function copy_img($dir_path, $dest) {
 
     while (false !== ($entry = readdir($dir))) {
         if ($entry !== '.' && $entry !== '..') {
-            if (pathinfo($entry)['extension'] === 'jpg') {
+            if (pathinfo($entry)['extension'] === 'png') {
                 copy($dir_path . '/' . $entry, $dest . '/' . $entry);
             }
         }
@@ -89,9 +90,9 @@ function create_html_file($path) {
     $html .= "</div>\n";
     $html .= "<div class='row'>\n";
     $html .= "<div class='col-xl h-100 d-inline-block illustration'>\n";
-    $html .= "<div class='btn-prev'></div>\n";
-    $html .= "<div class='btn-next'></div>\n";
-    $html .= "<img src='img/". basename($path) . "/1.jpg' alt='test' />\n";
+    $html .= "<div id='".basename($path)."-btn-prev' class='btn-prev'></div>\n";
+    $html .= "<div id='".basename($path)."-btn-next' class='btn-next'></div>\n";
+    $html .= "<img id='".basename($path)."-img' src='img/". basename($path) . "/1.png' alt='test' />\n";
     $html .= "</div>\n";
     $html .= "<div class='col-lg'>\n";
     $html .= "<p class='description'>\n";
@@ -112,6 +113,55 @@ function create_html_file($path) {
     $html .= "</div>\n";
 
     file_put_contents($path . '/out.html', $html);
+}
+
+function make_slider() {
+    $js_code = file_get_contents('main.js');
+    $dir = opendir('projects');
+
+
+    while (false !== ($entry = readdir($dir))) {
+        if ($entry !== '.' && $entry !== '..') {
+            $js_code .= "document.addEventListener('DOMContentLoaded', ".$entry."_main);";
+            $js_code .= "function ".$entry."_main() {";
+            $project_js = file_get_contents('projects/' .$entry. '/project.json');
+            $project = json_decode($project_js);
+
+            $img = $entry.'_img';
+            $btn_prev = $entry.'_btn_prev';
+            $func_prev = 'function () {
+                if (img_id > 1) {
+                    img_id --;
+                }
+                else {
+                    img_id = max;
+                }
+                '.$img.'.attr("src", "img/'.$entry.'/"+img_id+".png");
+            }';
+
+            $btn_next = $entry.'_btn_next';
+            $func_next = 'function () {
+                if (img_id < max) {
+                    img_id ++;
+                }
+                else {
+                    img_id = 1;
+                }
+                '.$img.'.attr("src", "img/'.$entry.'/"+img_id+".png");
+            }';
+
+            $js_code .= 'let '.$img.' = $("#'.$entry.'-img");';
+            $js_code .= 'let '.$btn_prev.' = $("#'.$entry.'-btn-prev");';
+            $js_code .= 'let '.$btn_next.' = $("#'.$entry.'-btn-next");';
+            $js_code .= 'let max = '.$project->nb_img.';';
+            $js_code .= 'let img_id = 1;';
+            $js_code .= $btn_prev.'.bind("click", '.$func_prev.');';
+            $js_code .= $btn_next.'.bind("click", '.$func_next.');';
+            $js_code .= "}";
+        }
+    }
+
+    file_put_contents('main.js', $js_code);
 }
 
 ?>
