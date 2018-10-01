@@ -7,7 +7,7 @@
   "scripts": {
     "webpack": "webpack --mode development",
     "sass": "sass src/main.sass dist/main.css",
-    "build": "npm run sass && npm run webpack"
+    "build": "cd src && php make-project.php && npm run sass && npm run webpack"
   },
   "keywords": [],
   "author": "",

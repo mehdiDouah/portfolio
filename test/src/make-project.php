@@ -106,9 +106,9 @@ function create_html_file($path) {
     $html .= "</div>\n";
     $html .= "<div class='row'>\n";
     $html .= "<div class='col-lg'>\n";
-    $html .= "<p>\n";
+    $html .= "<a href='".$project->github."'>\n";
     $html .= $project->github;
-    $html .= "</p>\n";
+    $html .= "</a>\n";
     $html .= "</div>\n";
     $html .= "</div>\n";
     $html .= "</div>\n";
