@@ -121,10 +121,7 @@ function make_slider() {
     $js_code = '';
     $dir = opendir('projects');
 
-
-    $js_code .= "import 'bootstrap/dist/css/bootstrap.min.css';";
-    $js_code .= "import 'bootstrap/dist/js/bootstrap.bundle';";
-    $js_code .= "import $ from 'jquery';";
+    $js_code = file_get_contents('gen/main.js');
 
     while (false !== ($entry = readdir($dir))) {
         if ($entry !== '.' && $entry !== '..') {
@@ -167,7 +164,7 @@ function make_slider() {
         }
     }
 
-    file_put_contents('main.js', $js_code);
+    file_put_contents('gen/out.js', $js_code);
 }
 
 ?>

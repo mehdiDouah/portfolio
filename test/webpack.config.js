@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './src/main.js',
+    entry: './src/gen/out.js',
     module: {
         rules: [{
             test: /\.css$/,

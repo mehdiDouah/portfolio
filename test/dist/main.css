@@ -33,12 +33,14 @@ body {
   margin-bottom: 23px !important;
   font-style: italic; }
 
-.project {
+.project, .header {
   background-color: #1C1C1D;
   border-bottom: 14px solid;
-  margin-bottom: 66px !important;
   border-left: 1px solid;
   border-right: 1px solid; }
+
+.project {
+  margin-bottom: 66px !important; }
 
 .project-header {
   background-color: #c7c5c7;
@@ -49,5 +51,31 @@ body {
 
 .skill {
   padding-left: 39px; }
+
+.section-title {
+  text-decoration: underline;
+  margin-bottom: 27px !important; }
+
+.btn-contact, .header-project {
+  position: sticky;
+  top: 0px;
+  background-color: #c7c5c7;
+  height: 61px; }
+
+.btn-contact {
+  z-index: 10000; }
+
+.header-project {
+  margin-bottom: 58px !important;
+  color: #313131 !important; }
+
+.btn-up {
+  width: 53px;
+  height: 49px;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  background-size: 100% 100%;
+  background-image: url("img/up.png"); }
 
 /*# sourceMappingURL=main.css.map */
