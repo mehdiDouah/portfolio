@@ -1,6 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle'
 import $ from 'jquery'
+
+$('.intro-more').click(function () {
+    console.log('click on info-more')
+    $('.intro-more').css('display', 'none')
+    $('.intro-more-content').css('display', 'block')
+})
+
 document.addEventListener('DOMContentLoaded', mario_main);function mario_main() {let mario_img = $("#mario-img");let mario_btn_prev = $("#mario-btn-prev");let mario_btn_next = $("#mario-btn-next");let max = 3;let img_id = 1;mario_btn_prev.bind("click", function () {
                 if (img_id > 1) {
                     img_id --;
