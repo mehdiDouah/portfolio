@@ -1,0 +1,2 @@
+C'est un jeu de sokoban complet qui comporte 34 niveau avec une difficulté progressive, des animations, du son et musique, un menu.
+J'ai d'abord crée un éditeur de niveau indépendant (disponible avec le jeu sur github), qui permet de tester le résultat en temps réel.

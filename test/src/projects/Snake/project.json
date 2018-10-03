@@ -1,0 +1,7 @@
+{
+    "name": "Snake",
+    "key": ["C", "SDL", "Windows", "Linux"],
+    "date": "2013",
+    "github": "https://github.com/doudou-djeck/Snake",
+    "nb_img": "5"
+}

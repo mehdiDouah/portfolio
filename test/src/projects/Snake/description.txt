@@ -1,0 +1,1 @@
+Jeu de snake réalisé en C avec la librarie SDL.

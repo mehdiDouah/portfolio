@@ -94,7 +94,7 @@ function create_html_file($path) {
         $html .= "<div id='".basename($path)."-btn-prev' class='btn-prev'></div>\n";
         $html .= "<div id='".basename($path)."-btn-next' class='btn-next'></div>\n";
     }
-    $html .= "<img id='".basename($path)."-img' src='img/". basename($path) . "/1.png' alt='test' />\n";
+    $html .= "<img id='".basename($path)."-img' src='img/". basename($path) . "/1.png' alt='' />\n";
     $html .= "</div>\n";
     $html .= "<div class='col-lg'>\n";
     $html .= "<p class='description'>\n";

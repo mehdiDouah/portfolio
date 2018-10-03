@@ -1,0 +1,1 @@
+C'est l'un de mes premiers jeu, lorsque j'apprenais l'allocation de mémoire dynamic en C.
